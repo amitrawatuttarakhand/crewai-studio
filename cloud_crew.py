@@ -42,7 +42,7 @@ llm = LLM(
 
 # Main User Inputs
 st.subheader("Task Definition")
-topic = st.text_input("Research Topic:", "Multi-Agent AI Systems in 2026")
+topic = st.text_input("Research Topic:", "")
 task_instructions = st.text_area(
     "Specific Instructions:",
     "Provide a detailed summary and highlight 3 key insights."
