@@ -48,7 +48,7 @@ task_instructions = st.text_area(
     "Provide a detailed summary and highlight 3 key insights."
 )
 
-if st.button("🚀 Run Cloud Crew", type="primary"):
+if st.button("🚀 Run", type="primary"):
     if not topic.strip():
         st.warning("Please enter a research topic first.")
     else:
