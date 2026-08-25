@@ -2,3 +2,5 @@ crewai
 crewai-tools
 python-dotenv
 streamlit
+openai
+anthropic
