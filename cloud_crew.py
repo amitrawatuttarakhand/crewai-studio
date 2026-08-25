@@ -19,23 +19,22 @@ st.sidebar.header("Model Selection")
 openrouter_model = st.sidebar.selectbox(
     "Select Cloud Model:",
     [
-        "anthropic/claude-3.5-sonnet",
+        "anthropic/claude-3.5-sonnet:beta",
         "deepseek/deepseek-chat",
         "meta-llama/llama-3.3-70b-instruct",
         "google/gemini-flash-1.5"
     ]
 )
 
-# Internal Safeguards
+# Internal Safeguard Settings
 MAX_ITERATIONS = 3
 MAX_EXEC_TIME = 120
 
-# API Key Check
 if not openrouter_key:
     st.error("⚠️ Missing OPENROUTER_API_KEY! Set it in your `.env` or Streamlit Secrets.")
     st.stop()
 
-# Native OpenRouter LLM Definition (Do NOT include base_url)
+# Force LiteLLM to route via OpenRouter using openrouter/ prefix
 llm = LLM(
     model=f"openrouter/{openrouter_model}",
     api_key=openrouter_key
@@ -49,7 +48,6 @@ task_instructions = st.text_area(
     "Provide a detailed summary and highlight 3 key insights."
 )
 
-# Run Crew Execution
 if st.button("🚀 Run Cloud Crew", type="primary"):
     if not topic.strip():
         st.warning("Please enter a research topic first.")
