@@ -50,7 +50,7 @@ if not openrouter_key:
 
 # Initialize OpenRouter LLM Instance
 llm = LLM(
-    model=openrouter_model,
+    model=f"openrouter/{openrouter_model}",
     base_url="https://openrouter.ai/api/v1",
     api_key=openrouter_key
 )
